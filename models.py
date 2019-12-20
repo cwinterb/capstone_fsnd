@@ -2,30 +2,32 @@
 # Imports
 #----------------------------------------------------------------------------#
 
-import json
+# import json
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf import Form
+# from flask_wtf import Form
 from datetime import datetime, time as time_
 # from forms import *
-from constants import default_project_img
+# from constants import default_project_img
 import os
 
 #----------------------------------------------------------------------------#
 # Models.
 #----------------------------------------------------------------------------#
 
-database_name = "capstone"
-database_path = "postgres://{}/{}".format(
-    'carmellasouthward@localhost:5432', database_name)
+# database_name = "capstone"
+# database_path = "postgres://{}/{}".format(
+#     'carmellasouthward@localhost:5432', database_name)
+os.environ['DATABASE_URL'] = 'https://data.heroku.com/datastores/2864d82f-cf11-496b-b210-5b0afc4b5d75'
 db = SQLAlchemy()
 
 
-def setup_db(app, database_path=database_path):
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ['DATABASE_URL']
+def setup_db(app):
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ["DATABASE_URL"]
+    # app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    db.create_all()
+    # db.create_all()
 
 
 class Project(db.Model):
