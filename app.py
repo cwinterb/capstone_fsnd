@@ -40,7 +40,7 @@ def create_app(test_config=None):
                 new_actor = Actor(name=name, age=age, gender=gender)
                 db.session.add(new_actor)
                 db.session.commit()
-            except DatabaseError:
+            except:
                 db.session.rollback()
                 abort(422)
             finally:
