@@ -13,7 +13,7 @@ from flask_wtf import Form
 from forms import *
 from auth import AuthError, requires_auth
 import json
-from werkzeug.exceptions import HTTPException
+
 from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
 
