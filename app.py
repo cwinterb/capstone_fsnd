@@ -28,7 +28,6 @@ def create_app(test_config=None):
     @app.route('/actors', methods=["GET", "POST"])
     def actors():
         if request.method == "GET":
-            # return render_template('pages/actors.html', actors=Actor.query.all())
             actors = Actor.query.all()
             actors_list = [actor.format() for actor in actors]
             return jsonify({
