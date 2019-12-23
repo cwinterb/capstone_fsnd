@@ -63,21 +63,15 @@ def create_app(test_config=None):
         if request.method == "PATCH":
             try:
                 actor = Actor.query.filter_by(id=id).first()
-                print(actor)
                 actor.name = request.args.get("name")
-                print(actor.name)
                 actor.age = request.args.get("age")
-                print(actor.age)
                 actor.gender = request.args.get("gender")
-                print(actor.gender)
-                print(actor.__dict__)
                 db.session.commit()
             except:
                 print("database error")
                 db.session.rollback()
                 abort(422)
             finally:
-                print(actor.__dict__)
                 db.session.close()
                 return jsonify({
                     'code': 'success'
