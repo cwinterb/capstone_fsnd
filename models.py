@@ -1,23 +1,23 @@
-#----------------------------------------------------------------------------#
+# ----------------------------------------------------------------------------#
 # Imports
-#----------------------------------------------------------------------------#
+# ----------------------------------------------------------------------------#
 
 import json
 from flask_sqlalchemy import SQLAlchemy
-# from flask_wtf import Form
 from datetime import datetime, time as time_
-# from forms import *
-# from constants import default_project_img
 import os
 
-#----------------------------------------------------------------------------#
+# ----------------------------------------------------------------------------#
 # Models.
-#----------------------------------------------------------------------------#
+# ----------------------------------------------------------------------------#
 
 # database_name = "capstone"
 # database_path = "postgres://{}/{}".format(
 #     'carmellasouthward@localhost:5432', database_name)
-os.environ['DATABASE_URL'] = 'postgres://rvdixtckdcynvq:dccf2c7af7c3b8b9bbd3057b002da797eb5ab9145cef564381ba9949d9b00539@ec2-54-225-95-183.compute-1.amazonaws.com:5432/dcs5kmhsdv8qpp'
+os.environ['DATABASE_URL'] = '''postgres://rvdixtckdcynvq:dccf2c7af7c3b8b9bbd
+                                3057b002da797eb5ab9145cef564381ba9949d9b00539@ec2
+                                -54-225-95-183.compute-1.amazonaws.com:5432/dcs5k
+                                mhsdv8qpp'''
 db = SQLAlchemy()
 
 
