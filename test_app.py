@@ -75,19 +75,19 @@ class AgencyTestCase(unittest.TestCase):
         self.assertEqual(res.status_code, 404)
 
     def testPatchActor(self):
-        res = self.client().post('/actor/1/edit', json=self.new_actor)
+        res = self.client().patch('/actor/1/edit', json=self.new_actor)
         self.assertEqual(res.status_code, 200)
 
     def testPatchActorFail(self):
-        res = self.client().post('/actors/1/edit', json=self.new_actor)
+        res = self.client().patch('/actors/1/edit', json=self.new_actor)
         self.assertEqual(res.status_code, 404)
 
     def testDeleteActor(self):
-        res = self.client().post('/actors/1')
+        res = self.client().delete('/actors/1')
         self.assertEqual(res.status_code, 200)
 
     def testDeleteProject(self):
-        res = self.client().post('/projects/1/delete')
+        res = self.client().delete('/projects/1/delete')
         self.assertEqual(res.status_code, 200)
 
 
